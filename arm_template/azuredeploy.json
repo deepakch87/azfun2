@@ -23,7 +23,7 @@
             }
         },
         "funcstorageAccountName": {
-		            "defaultValue": "testazfun",
+		            "defaultValue": "testazfun2210",
 		            "type": "String"
         },
         "location": {

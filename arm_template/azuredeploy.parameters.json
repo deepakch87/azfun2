@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appName": {
+            "value": "testazfun1"
+        },
+        "storageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "funcstorageAccountName": {
+            "value": "testazfun"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "runtime": {
+            "value": "python"
+        }
+    }
+}

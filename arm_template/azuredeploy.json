@@ -81,13 +81,11 @@
                 "name": "Y1",
                 "tier": "Dynamic"
             },
+		"kind": "functionapp",
             "properties": {
-                "name": "servicePlan",
                 "computeMode": "Dynamic"
-            },
-            "tags": {
-                "displayName": "servicePlan"
             }
+            
         },
          {
               "apiVersion": "2015-08-01",

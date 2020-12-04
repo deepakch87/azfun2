@@ -1,0 +1,27 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- steps:
+- script: |
+    mkdir -p $(Build.ArtifactStagingDirectory)\azfun2\createFunctionappResource
+    xcopy "$(Build.SourcesDirectory)\*.*" "$(Build.ArtifactStagingDirectory)\azfun2\createFunctionappResource" /s /e /y
+  workingDirectory: $(Build.ArtifactStagingDirectory)
+  displayName: 'Prepare createFunctionappResource Build Artifacts'
+
+- task: PublishBuildArtifacts@1
+  displayName: Publish createFunctionappResource Artifacts
+  inputs:
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)\azfun2\createFunctionappResource'
+    artifactName: azfun2-createFunctionappResource

@@ -198,7 +198,7 @@
                         },
                         {
                             "name": "WEBSITE_CONTENTSHARE",
-                            "value": "[toLower(variables('functionAppName'))]"
+                            "value": "[toLower(parameters('sites_MyFunApp123_name'))]"
                         },
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -210,11 +210,11 @@
                         },
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                            "value": "[reference(resourceId('microsoft.insights/components', variables('applicationInsightsName')), '2018-05-01-preview').InstrumentationKey]"
+                            "value": "[reference(resourceId('microsoft.insights/components', parameters('sites_MyFunApp123_name')), '2018-05-01-preview').InstrumentationKey]"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_RUNTIME",
-                            "value": "[variables('functionWorkerRuntime')]"
+                            "value": "python"
                         }
                     ]
 				},

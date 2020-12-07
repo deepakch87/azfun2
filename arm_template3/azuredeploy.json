@@ -2,20 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "sites_MyFunApp123_name": {
-            "defaultValue": "MyFunApp123",
+        "sites_NewFunApp123_name": {
+            "defaultValue": "NewFunApp123",
             "type": "String"
         },
-        "components_MyFunApp123_name": {
-            "defaultValue": "MyFunApp123",
+        "components_NewFunApp123_name": {
+            "defaultValue": "NewFunApp123",
             "type": "String"
         },
-        "storageAccounts_storageaccountgroup8585_name": {
-            "defaultValue": "storageaccountgroup8585",
+        "storageAccounts_storageaccountgroup7738_name": {
+            "defaultValue": "storageaccountgroup7738",
             "type": "String"
         },
-        "serverfarms_ASP_GroupCreatedWithPowerShell_9777_name": {
-            "defaultValue": "ASP-GroupCreatedWithPowerShell-9777",
+        "serverfarms_ASP_GroupCreatedWithPowerShell1_9777_name": {
+            "defaultValue": "ASP-GroupCreatedWithPowerShell1-9777",
             "type": "String"
         }
     },
@@ -24,7 +24,7 @@
         {
             "type": "microsoft.insights/components",
             "apiVersion": "2018-05-01-preview",
-            "name": "[parameters('components_MyFunApp123_name')]",
+            "name": "[parameters('components_NewFunApp123_name')]",
             "location": "eastus",
             "kind": "web",
             "properties": {
@@ -39,40 +39,18 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2020-08-01-preview",
-            "name": "[parameters('storageAccounts_storageaccountgroup8585_name')]",
+            "name": "[parameters('storageAccounts_storageaccountgroup7738_name')]",
             "location": "eastus",
             "sku": {
                 "name": "Standard_LRS",
                 "tier": "Standard"
             },
-            "kind": "Storage",
-            "properties": {
-                "networkAcls": {
-                    "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": true,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "keyType": "Account",
-                            "enabled": true
-                        },
-                        "blob": {
-                            "keyType": "Account",
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
-            }
+            "kind": "Storage"
         },
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
-            "name": "[parameters('serverfarms_ASP_GroupCreatedWithPowerShell_9777_name')]",
+            "name": "[parameters('serverfarms_ASP_GroupCreatedWithPowerShell1_9777_name')]",
             "location": "East US",
             "sku": {
                 "name": "Y1",
@@ -94,95 +72,29 @@
             }
         },
         {
-            "type": "Microsoft.Storage/storageAccounts/blobServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountgroup8585_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup8585_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                },
-                "deleteRetentionPolicy": {
-                    "enabled": false
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/fileServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountgroup8585_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup8585_name'))]"
-            ],
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "properties": {
-                "protocolSettings": {
-                    "smb": {}
-                },
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/queueServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountgroup8585_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup8585_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
-            "type": "Microsoft.Storage/storageAccounts/tableServices",
-            "apiVersion": "2020-08-01-preview",
-            "name": "[concat(parameters('storageAccounts_storageaccountgroup8585_name'), '/default')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup8585_name'))]"
-            ],
-            "properties": {
-                "cors": {
-                    "corsRules": []
-                }
-            }
-        },
-        {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
-            "name": "[parameters('sites_MyFunApp123_name')]",
+            "name": "[parameters('sites_NewFunApp123_name')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GroupCreatedWithPowerShell_9777_name'))]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GroupCreatedWithPowerShell1_9777_name'))]"
             ]	,
             "kind": "functionapp,linux",
             "properties": {
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GroupCreatedWithPowerShell_9777_name'))]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GroupCreatedWithPowerShell1_9777_name'))]",
                 "siteConfig": {
 				"appSettings": [
                         {
                             "name": "AzureWebJobsStorage",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccounts_storageaccountgroup8585_name'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup8585_name')), '2019-06-01').keys[0].value)]"
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccounts_storageaccountgroup7738_name'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup7738_name')), '2019-06-01').keys[0].value)]"
                         },
                         {
                             "name": "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccounts_storageaccountgroup8585_name'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup8585_name')), '2019-06-01').keys[0].value)]"
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccounts_storageaccountgroup7738_name'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup7738_name')), '2019-06-01').keys[0].value)]"
                         },
                         {
                             "name": "WEBSITE_CONTENTSHARE",
-                            "value": "[toLower(parameters('sites_MyFunApp123_name'))]"
+                            "value": "[toLower(parameters('sites_NewFunApp123_name'))]"
                         },
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -194,7 +106,7 @@
                         },
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                            "value": "[reference(resourceId('microsoft.insights/components', parameters('sites_MyFunApp123_name')), '2018-05-01-preview').InstrumentationKey]"
+                            "value": "[reference(resourceId('microsoft.insights/components', parameters('sites_NewFunApp123_name')), '2018-05-01-preview').InstrumentationKey]"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_RUNTIME",

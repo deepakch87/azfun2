@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_MyFunApp123_name": {
+            "value": null
+        },
+        "components_MyFunApp123_name": {
+            "value": null
+        },
+        "storageAccounts_storageaccountgroup8585_name": {
+            "value": null
+        },
+        "serverfarms_ASP_GroupCreatedWithPowerShell_9777_name": {
+            "value": null
+        }
+    }
+}

@@ -2,20 +2,20 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "sites_NewFunApp456_name": {
-            "defaultValue": "NewFunApp456",
+        "sites_NewFunApp789_name": {
+            "defaultValue": "NewFunApp789",
             "type": "String"
         },
-        "components_NewFunApp456_name": {
-            "defaultValue": "NewFunApp456",
+        "components_NewFunApp789_name": {
+            "defaultValue": "NewFunApp789",
             "type": "String"
         },
-        "storageAccounts_storageaccountgroup7811_name": {
-            "defaultValue": "storageaccountgroup7811",
+        "storageAccounts_storageaccountgroup66_name": {
+            "defaultValue": "storageaccountgroup66",
             "type": "String"
         },
-        "serverfarms_ASP_GCP2_9777_name": {
-            "defaultValue": "ASP-GCP2-9777",
+        "serverfarms_ASP_GCP3_9777_name": {
+            "defaultValue": "ASP-GCP3-9777",
             "type": "String"
         }
     },
@@ -24,7 +24,7 @@
         {
             "type": "microsoft.insights/components",
             "apiVersion": "2018-05-01-preview",
-            "name": "[parameters('components_NewFunApp456_name')]",
+            "name": "[parameters('components_NewFunApp789_name')]",
             "location": "eastus",
             "kind": "web",
             "properties": {
@@ -39,7 +39,7 @@
         {
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2020-08-01-preview",
-            "name": "[parameters('storageAccounts_storageaccountgroup7811_name')]",
+            "name": "[parameters('storageAccounts_storageaccountgroup66_name')]",
             "location": "eastus",
             "sku": {
                 "name": "Standard_LRS",
@@ -50,7 +50,7 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
-            "name": "[parameters('serverfarms_ASP_GCP2_9777_name')]",
+            "name": "[parameters('serverfarms_ASP_GCP3_9777_name')]",
             "location": "East US",
             "sku": {
                 "name": "Y1",
@@ -74,19 +74,19 @@
         {
             "type": "Microsoft.Web/sites",
             "apiVersion": "2018-11-01",
-            "name": "[parameters('sites_NewFunApp456_name')]",
+            "name": "[parameters('sites_NewFunApp789_name')]",
             "location": "East US",
             "dependsOn": [
-                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GCP2_9777_name'))]"
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GCP3_9777_name'))]"
             ]	,
             "kind": "functionapp,linux",
             "properties": {
-                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GCP2_9777_name'))]",
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_ASP_GCP3_9777_name'))]",
                 "siteConfig": {
 				"appSettings": [
                         {
                             "name": "AzureWebJobsStorage",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccounts_storageaccountgroup7811_name'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup7811_name')), '2019-06-01').keys[0].value)]"
+                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=', parameters('storageAccounts_storageaccountgroup66_name'), ';EndpointSuffix=', environment().suffixes.storage, ';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_storageaccountgroup66_name')), '2019-06-01').keys[0].value)]"
                         },
                         {
                             "name": "FUNCTIONS_EXTENSION_VERSION",
@@ -98,7 +98,7 @@
                         },
                         {
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                            "value": "[reference(resourceId('microsoft.insights/components', parameters('sites_NewFunApp456_name')), '2018-05-01-preview').InstrumentationKey]"
+                            "value": "[reference(resourceId('microsoft.insights/components', parameters('sites_NewFunApp789_name')), '2018-05-01-preview').InstrumentationKey]"
                         },
                         {
                             "name": "FUNCTIONS_WORKER_RUNTIME",

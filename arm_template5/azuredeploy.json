@@ -29,7 +29,7 @@
     },
     "variables": {
 		"Var_STORAGE_ACCOUNT_NAME": "[parameters('Par_STORAGE_ACCOUNT_NAME')]",
-        "Var_STORAGE_ACCOUNT_KEY": "[parameters('Par_STORAGE_ACCOUNT_KEY')]",
+        "Var_STORAGE_ACCOUNT_KEY": "[parameters('Par_STORAGE_ACCOUNT_KEY')]"
 	},
     "resources": [
         {

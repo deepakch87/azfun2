@@ -17,15 +17,15 @@
         "serverfarms_ASP_GCP4_9777_name": {
             "defaultValue": "ASP-GCP4-9777",
             "type": "String"
-        }
-		"Par_STORAGE_ACCOUNT_NAME": {
-		            "defaultValue": "teststorageaccount906719",
-		            "type": "String"
-		}
-		"Par_STORAGE_ACCOUNT_KEY": {
-		            "defaultValue": "2nv+fwrqI0pawHjn+L9n8xiNy47+4woyOnHNKfhmhceceTn5wJddvLyx5R9NqCsa8rr7xiCxwfSlDvHoKaHJLA==",
-		            "type": "String"
-		}
+        },
+	"Par_STORAGE_ACCOUNT_NAME": {
+		"defaultValue": "teststorageaccount906719",
+		"type": "String"
+	},
+	"Par_STORAGE_ACCOUNT_KEY": {
+		"defaultValue": "2nv+fwrqI0pawHjn+L9n8xiNy47+4woyOnHNKfhmhceceTn5wJddvLyx5R9NqCsa8rr7xiCxwfSlDvHoKaHJLA==",
+		"type": "String"
+	}
     },
     "variables": {
 		"Var_STORAGE_ACCOUNT_NAME": "[parameters('Par_STORAGE_ACCOUNT_NAME')]",

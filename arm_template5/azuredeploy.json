@@ -111,6 +111,10 @@
                             "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
                             "value": "[reference(resourceId('microsoft.insights/components', parameters('sites_NewFunApp123_name')), '2018-05-01-preview').InstrumentationKey]"
                         },
+			{
+                            "name": "FUNCTIONS_WORKER_RUNTIME",
+                            "value": "python"
+                        },
                         {
                             "name": "STORAGE_ACCOUNT_NAME",
                             "value": "[variables('Var_STORAGE_ACCOUNT_NAME')]"
